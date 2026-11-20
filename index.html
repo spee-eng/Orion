@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ORION – Occhiali intelligenti per non vedenti</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#14182b;--mu:#454b66;--ac:#2f4bc4;--onac:#fff;--bd:#c9cfe2;--fs:100%;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1020;--card:#171b30;--tx:#eef0fa;--mu:#b4bad4;--ac:#9fb2ff;--onac:#0d1020;--bd:#3a4163}}
+:root[data-theme="dark"]{--bg:#0d1020;--card:#171b30;--tx:#eef0fa;--mu:#b4bad4;--ac:#9fb2ff;--onac:#0d1020;--bd:#3a4163}
+:root[data-hc="1"]{--bg:#000;--card:#000;--tx:#fff;--mu:#fff;--ac:#ffe600;--onac:#000;--bd:#fff}
+*{box-sizing:border-box}html{font-size:var(--fs);scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--tx);font:1.125rem/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}
+a:focus-visible,button:focus-visible{outline:4px solid var(--ac);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ac);color:var(--onac);padding:12px 18px;border-radius:10px;z-index:9;font-weight:700}
+.skip:focus{left:12px}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header{border-bottom:2px solid var(--bd)}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding:12px 0}
+.top strong{letter-spacing:.2em;font-size:1.2rem}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 8px;margin:0;padding:0}
+nav a{display:inline-block;color:var(--tx);padding:10px 12px;min-height:44px;font-weight:600}
+.tools{display:flex;flex-wrap:wrap;gap:8px;padding:0 0 14px}
+button,.btn{font:inherit;font-weight:600;min-height:48px;padding:10px 18px;border-radius:12px;border:2px solid var(--ac);background:transparent;color:var(--tx);cursor:pointer;text-decoration:none;display:inline-block}
+button[aria-pressed="true"]{background:var(--ac);color:var(--onac)}
+.pri{background:var(--ac);color:var(--onac)}
+h1{font-size:clamp(2.6rem,10vw,4.2rem);margin:.3em 0 0;letter-spacing:.08em;line-height:1.1}
+h2{font-size:1.7rem;margin:2.2em 0 .5em;line-height:1.25}h3{font-size:1.2rem;margin:0 0 .2em}
+.lead{font-size:1.3rem;max-width:34em;color:var(--mu)}
+.eyebrow{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;color:var(--ac)}
+.cards{list-style:none;padding:0;margin:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card,.cards li{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:14px 18px}
+.card p,.cards p{margin:.2em 0;color:var(--mu)}
+.dl{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.dl .card{display:flex;flex-direction:column;gap:8px}.dl button{margin-top:auto}
+.prog{height:14px;border-radius:99px;background:var(--bd);overflow:hidden;margin-top:14px}.prog i{display:block;height:100%;width:0;background:var(--ac)}
+#dlmsg{min-height:1.7em;font-weight:600}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:480px}
+caption{text-align:left;font-weight:700;padding-bottom:6px}
+th,td{border-bottom:2px solid var(--bd);padding:10px;text-align:left;vertical-align:top}
+ol.steps{padding-left:1.4em;display:grid;gap:10px}ol.steps li{padding-left:6px}ol.steps b{display:block}
+footer{border-top:2px solid var(--bd);margin-top:3em;padding:20px 0 40px;color:var(--mu)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto principale</a>
+<header>
+<div class="wrap">
+<div class="top"><strong>ORION</strong>
+<nav aria-label="Navigazione principale"><ul><li><a href="#idea">L’idea</a></li><li><a href="#accessibile">Per chi non vede</a></li><li><a href="#scarica">Scarica</a></li><li><a href="#tecnologia">Tecnologia</a></li></ul></nav></div>
+<div class="tools" role="group" aria-label="Strumenti di accessibilità">
+<button id="bigger" type="button" aria-label="Ingrandisci il testo">Testo più grande</button>
+<button id="smaller" type="button" aria-label="Riduci il testo">Testo più piccolo</button>
+<button id="hc" type="button" aria-pressed="false">Alto contrasto</button>
+<button id="read" type="button" aria-pressed="false">Leggi la pagina ad alta voce</button>
+</div>
+</div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<section aria-labelledby="t-hero">
+<p class="eyebrow">App companion per occhiali intelligenti</p>
+<h1 id="t-hero">ORION</h1>
+<p class="lead">Intelligent Environmental Perception System. Non semplici occhiali che riconoscono oggetti, ma occhiali che comprendono come cambia il mondo intorno a chi li indossa.</p>
+<p><a class="btn pri" href="#scarica">Vai al download dell’app</a></p>
+</section>
+
+<section id="idea" aria-labelledby="t-idea">
+<h2 id="t-idea">L’idea in breve</h2>
+<ul class="cards">
+<li><h3>Memoria spaziale</h3><p>Ricorda dove sono tavolo, sedie e porte anche dopo che l’utente si è spostato.</p></li>
+<li><h3>Cosa è cambiato</h3><p>Segnala le trasformazioni: «la sedia è stata spostata», «la porta ora è chiusa».</p></li>
+<li><h3>Priorità</h3><p>Distingue pericolo immediato, informazione utile e descrizione, per non sommergere di parole.</p></li>
+<li><h3>Conversazione</h3><p>«Dove posso sedermi?» Risponde con dati reali raccolti, senza inventare.</p></li>
+<li><h3>Audio a due livelli</h3><p>Suono spaziale per direzione e urgenza, voce naturale per descrizioni e risposte.</p></li>
+</ul>
+</section>
+
+<section id="accessibile" aria-labelledby="t-acc">
+<h2 id="t-acc">Pensato per chi non vede</h2>
+<p>ORION si usa con la voce e con il suono, senza bisogno di guardare uno schermo. Questo sito segue lo stesso principio.</p>
+<ul class="cards">
+<li><h3>Con la voce</h3><p>Si parla agli occhiali in modo naturale e si ricevono risposte parlate.</p></li>
+<li><h3>Con il suono nello spazio</h3><p>Un suono proveniente da destra o da sinistra indica la direzione e l’urgenza di un ostacolo.</p></li>
+<li><h3>Senza isolare l’udito</h3><p>Le cuffie a conduzione ossea lasciano liberi i rumori dell’ambiente.</p></li>
+<li><h3>Questo sito</h3><p>Compatibile con screen reader e tastiera, con testo ingrandibile, alto contrasto e lettura ad alta voce dai pulsanti in alto.</p></li>
+</ul>
+</section>
+
+<section id="scarica" aria-labelledby="t-dl">
+<h2 id="t-dl">Scarica ORION</h2>
+<div class="dl">
+<div class="card"><h3>App per Android</h3><p>Versione 0.1 (prototipo). Collega gli occhiali, gestisce voce e audio spaziale.</p><button type="button" data-p="Android">Scarica per Android</button></div>
+<div class="card"><h3>App per iPhone</h3><p>Versione 0.1 (prototipo). Stesse funzioni, con VoiceOver integrato.</p><button type="button" data-p="iPhone">Scarica per iPhone</button></div>
+<div class="card"><h3>Firmware degli occhiali</h3><p>Versione 0.1 (prototipo). Aggiornamento per il dispositivo ORION.</p><button type="button" data-p="Firmware">Scarica il firmware</button></div>
+</div>
+<div class="prog" role="progressbar" aria-label="Avanzamento del download" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pg"><i id="bar"></i></div>
+<p id="dlmsg" role="status" aria-live="polite"></p>
+</section>
+
+<section id="tecnologia" aria-labelledby="t-tec">
+<h2 id="t-tec">Come funziona</h2>
+<ol class="steps">
+<li><b>Acquisizione</b>Telecamere RGB, sensori di profondità, microfoni, IMU, GPS.</li>
+<li><b>Percezione</b>Oggetti, distanze, persone, movimento, geometria 3D.</li>
+<li><b>Memoria spaziale</b>Mappa dinamica, memoria degli eventi, confronto nel tempo.</li>
+<li><b>IA decisionale</b>Rischi, affidabilità delle rilevazioni, priorità, richieste dell’utente.</li>
+<li><b>Interfaccia sensoriale</b>Audio 3D, conduzione ossea, voce, eventuali vibrazioni.</li>
+</ol>
+<p>Le informazioni urgenti vengono elaborate localmente, senza dipendere da Internet.</p>
+</section>
+
+<section aria-labelledby="t-ex">
+<h2 id="t-ex">Cosa esiste già (ricognizione preliminare)</h2>
+<div class="scroll"><table>
+<caption>Brevetti e prodotti simili a ORION</caption>
+<thead><tr><th scope="col">Riferimento</th><th scope="col">Cosa comprende</th></tr></thead>
+<tbody>
+<tr><th scope="row">US20260224430A1</th><td>Occhiali con sensori di distanza, analisi del moto degli ostacoli, audio 3D</td></tr>
+<tr><th scope="row">US20230350073A1</th><td>Dispositivo indossabile con IA, GPS, ostacoli e vibrazioni</td></tr>
+<tr><th scope="row">US20230260534A1</th><td>Interfaccia che descrive a voce l’ambiente</td></tr>
+<tr><th scope="row">CN120131404A</th><td>Occhiali con camera stereoscopica, modello multimodale, navigazione</td></tr>
+<tr><th scope="row">Envision</th><td>Prodotto con descrizione di scene e riconoscimento oggetti</td></tr>
+</tbody></table></div>
+</section>
+
+<section aria-labelledby="t-nu">
+<h2 id="t-nu">Il nucleo di novità (ipotesi)</h2>
+<div class="card"><h3>Memoria spaziale predittiva con comunicazione adattiva degli eventi ambientali</h3>
+<p>Il sistema costruisce una rappresentazione spaziale, memorizza posizioni e cambiamenti, distingue eventi nuovi da quelli già noti, valuta l’affidabilità delle proprie rilevazioni, decide cosa, quando e come comunicare, e si aggiorna con le correzioni dell’utente.</p></div>
+</section>
+
+<section aria-labelledby="t-pb">
+<h2 id="t-pb">Percorso verso il brevetto</h2>
+<ol class="steps">
+<li>Ricerca di anteriorità (Italia, Europa, USA, Cina, internazionale)</li>
+<li>Definizione delle caratteristiche tecniche nuove e non ovvie</li>
+<li>Prototipo, anche con occhiali commerciali e unità di calcolo esterna</li>
+<li>Deposito con un consulente, prima di divulgare l’invenzione</li>
+</ol>
+</section>
+
+<section aria-labelledby="t-op">
+<h2 id="t-op">Scelte ancora aperte</h2>
+<ul class="cards">
+<li><h3>Funzionamento</h3><p>Descrizione continua, a richiesta, o entrambe</p></li>
+<li><h3>Forma</h3><p>Occhiali tradizionali, con piccolo dispositivo esterno, o tutto integrato</p></li>
+<li><h3>Priorità</h3><p>Sicurezza, descrizione, orientamento, o tutte</p></li>
+<li><h3>Budget del prototipo</h3><p>Economico, intermedio o avanzato</p></li>
+</ul>
+</section>
+</main>
+<footer><div class="wrap">ORION · progetto concept</div></footer>
+<script>
+var R=document.documentElement,sz=100;
+function fs(d){sz=Math.max(85,Math.min(180,sz+d));R.style.setProperty('--fs',sz+'%')}
+document.getElementById('bigger').onclick=function(){fs(15)};
+document.getElementById('smaller').onclick=function(){fs(-15)};
+var hc=document.getElementById('hc');hc.onclick=function(){var on=hc.getAttribute('aria-pressed')!=='true';hc.setAttribute('aria-pressed',on);if(on)R.setAttribute('data-hc','1');else R.removeAttribute('data-hc')};
+var rd=document.getElementById('read');
+rd.onclick=function(){if(!('speechSynthesis' in window))return;
+if(rd.getAttribute('aria-pressed')==='true'){speechSynthesis.cancel();rd.setAttribute('aria-pressed','false');rd.textContent='Leggi la pagina ad alta voce';return}
+var u=new SpeechSynthesisUtterance(document.getElementById('main').innerText);u.lang='it-IT';
+u.onend=function(){rd.setAttribute('aria-pressed','false');rd.textContent='Leggi la pagina ad alta voce'};
+rd.setAttribute('aria-pressed','true');rd.textContent='Ferma la lettura';speechSynthesis.cancel();speechSynthesis.speak(u)};
+var tm;document.querySelectorAll('[data-p]').forEach(function(b){b.onclick=function(){clearInterval(tm);
+var n=0,bar=document.getElementById('bar'),pg=document.getElementById('pg'),m=document.getElementById('dlmsg');
+m.textContent='Download di ORION per '+b.dataset.p+' avviato.';
+tm=setInterval(function(){n+=5;bar.style.width=n+'%';pg.setAttribute('aria-valuenow',n);
+if(n>=100){clearInterval(tm);m.textContent='Download per '+b.dataset.p+' completato.'}},90)}});
+</script>
+</body>
+</html>
